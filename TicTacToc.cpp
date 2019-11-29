@@ -239,24 +239,24 @@ coord tictactoc::computer_play(void)const
 	}
 	//斜对角。。。
 	counter = 0;
-	for (size_t i = 0; i != 4; ++i)
+	for (size_t i = 0; i != 3; ++i)
 	{
 		if (chess_board[i][i] == computer_flag)
 			counter++;
 	}
 	if (counter == 2)
-		for (size_t i = 0; i != 4; ++i)
+		for (size_t i = 0; i != 3; ++i)
 			if (chess_board[i][i] == 0)
 				return coord(i, i);
 	//反斜对角。。。
 	counter = 0;
-	for (size_t i = 0; i != 4; ++i)
+	for (size_t i = 0; i != 3; ++i)
 	{
 		if (chess_board[2 - i][i] == computer_flag)
 			counter++;
 	}
 	if (counter == 2)
-		for (size_t i = 0; i != 4; ++i)
+		for (size_t i = 0; i != 3; ++i)
 			if (chess_board[2 - i][i] == 0)
 				return coord(2 - i, i);
 
@@ -285,24 +285,24 @@ coord tictactoc::computer_play(void)const
 	}
 	//斜对角。。。
 	counter = 0;
-	for (size_t i = 0; i != 4; ++i)
+	for (size_t i = 0; i != 3; ++i)
 	{
 		if (chess_board[i][i] == other_flag)
 			counter++;
 	}
 	if (counter == 2)
-		for (size_t i = 0; i != 4; ++i)
+		for (size_t i = 0; i != 3; ++i)
 			if (chess_board[i][i] == 0)
 				return coord(i, i);
 	//反斜对角。。。
 	counter = 0;
-	for (size_t i = 0; i != 4; ++i)
+	for (size_t i = 0; i != 3; ++i)
 	{
 		if (chess_board[2 - i][i] == other_flag)
 			counter++;
 	}
 	if (counter == 2)
-		for (size_t i = 0; i != 4; ++i)
+		for (size_t i = 0; i != 3; ++i)
 			if (chess_board[2 - i][i] == 0)
 				return coord(2 - i, i);
 
