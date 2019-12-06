@@ -6,7 +6,7 @@ typedef struct
 	size_t x;
 	size_t y;
 }coord;//用于保存坐标
-enum keyid { Up = 72, Down = 80, Left = 75, Right = 77, Enter = 13, ESC=27 };//保存↑ ↓ ← → Enter键的键值
+enum keyid { Up = 72, Down = 80, Left = 75, Right = 77, Enter = 13, ESC=27 };//保存↑ ↓ ← → Enter ESC键的键值
 void draw(const coord, const int(*)[12], const coord);
 void CombineAB(int(*)[12], const int(*)[6], const int(*)[6]);
 void move(coord*, int);
