@@ -6,7 +6,7 @@ typedef struct
 	size_t x;
 	size_t y;
 }coord;//用于保存坐标
-enum keyid { Up = 72, Down = 80, Left = 75, Right = 77, Enter = 13 };//保存↑ ↓ ← → Enter键的键值
+enum keyid { Up = 72, Down = 80, Left = 75, Right = 77, Enter = 13, ESC=27 };//保存↑ ↓ ← → Enter键的键值
 void draw(const coord, const int(*)[12], const coord);
 void CombineAB(int(*)[12], const int(*)[6], const int(*)[6]);
 void move(coord*, int);
@@ -59,6 +59,27 @@ int main()
 			CombineAB(combine, A, B);//刷新combine中的数据（合并A,B数组的数据）
 			draw(location, combine, pos);//刷新界面
 			break;
+		case ESC://输出全部数据
+			system("cls");
+			printf("\t\033[36mA\033[0m\n");
+			for (size_t x = 0; x != 5; ++x)//打印A的全部数据
+			{
+				for (size_t y = 0; y != 6; ++y)
+					printf("%d  ", A[x][y]);
+				printf("\n");
+			}
+			printf("\n\t\033[36mB\033[0m\n");
+			for (size_t x = 0; x != 5; ++x)//打印B的全部数据
+			{
+				for (size_t y = 0; y != 6; ++y)
+					printf("%d  ", B[x][y]);
+				printf("\n");
+			}
+			printf("\n\033[32mPress any key to back to the main page...\033[0m");
+			//_getch()返回值被忽略会警告，变量temp仅用于消除碍眼的warning
+			//	(๑•̀ㅂ•́)و✧	0 error(s), 0warning(s)
+			 int temp=_getch();//等待用户按下任意键...
+			draw(location, combine, pos);
 		}
 	}
 }
